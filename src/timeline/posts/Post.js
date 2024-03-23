@@ -1,26 +1,30 @@
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { Avatar } from "@mui/material";
 import React from "react";
 import "./Post.css";
+import { Avatar } from "@mui/material";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 
-function Post({ user, postImage, likes, timestamp }) {
+function Post({user, postImage, likes, timestamp}) {
   return (
     <div className="post">
       <div className="post__header">
         <div className="post__headerAuthor">
-          <Avatar style={{ marginRight: "10px" }}>
-            {user.charAt(0).toUpperCase()}
-          </Avatar>{" "}
+          <span className="avatar"> 
+          <Avatar>{user.charAt(0).toUpperCase()}</Avatar>
+          </span>
+          
           {user} • <span>{timestamp}</span>
         </div>
         <MoreHorizIcon />
       </div>
       <div className="post__image">
-        <img src={postImage} alt="Post Image" />
+        <img
+          src={postImage}
+          alt=""
+        />
       </div>
       <div className="post__footer">
         <div className="post__footerIcons">
@@ -33,10 +37,10 @@ function Post({ user, postImage, likes, timestamp }) {
             <BookmarkBorderIcon className="postIcon" />
           </div>
         </div>
-        Liked by {likes} people.
+        liked by {likes} people
       </div>
     </div>
-  );
-}
+  ); 
+ }
 
 export default Post;
